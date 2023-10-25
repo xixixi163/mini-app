@@ -13,5 +13,8 @@
   "dependencies": {
     "element-plus": "^2.3.14",
     "vue": "^3.3.4"
+  },
+  "publishConfig": {
+    "registry": "https://github.com/xixixi163/mini-app.git"
   }
 }
