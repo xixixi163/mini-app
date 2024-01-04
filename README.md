@@ -21,6 +21,9 @@
 添加该组件库 `pnpm add @lotus-leaf/mini-app`
 使用组件，可以看到热更新
 
+组件使用了`install`，可全局注册组件
+`app.use(lotus)`
+
 ## 组件开发
 组件放在 src 目录下
 `tree -N -d -I "node_modules" `
@@ -28,7 +31,8 @@
 ──mini-app
     ├──src 组件根目录 
     │   |--button 示例组件
-    │   |   └──index.ts 导出该组件
+    │   |   └──index.ts 导出该组件 install 组件
+    |   |   └──button.vue 给组件命名
     │   └──index.ts 导出所有组件
-    └──index.ts 导出所有组件
+    └──index.ts 导出所有组件 app.use 组件
 ```
