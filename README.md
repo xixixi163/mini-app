@@ -36,3 +36,20 @@
     │   └──index.ts 导出所有组件
     └──index.ts 导出所有组件 app.use 组件
 ```
+组件还没打包时，更改了内容，pnpm链接的项目也会更着改依赖包
+
+## 组件属性提示，借助vscode 的 volar 给全局组件加上提示效果
+`pnpm add @vue/runtime-core -D -w`
+src 下新建`components.d.ts`
+当使用组件库的时候，需要在`tsconfig.json`配置--暂无效果
+```
+"compilerOptions": {
+    //...
+    "types": ["lutus-leaf/lib/src/components"]
+  },
+```
+
+## 打包
+`pnpm add vite @vitejs/plugin-vue -D`
+
+
