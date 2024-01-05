@@ -1,0 +1,7 @@
+.wrap {
+  color: #8d8cd8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #00ffae;
+}

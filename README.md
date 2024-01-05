@@ -58,5 +58,32 @@ src 下新建`components.d.ts`
 
 安装 `vite-plugin-dts` 插件,注意版本最好一致
 
+## glup 流程化控制
+项目开发过程中自动执行常见任务。
+比如打包一个组件库，我们可能要移除文件、copy文件，打包样式、打包组件、执行一些命令还有一键打包多个package等等都可以由gulp进行自定义流程的控制
+
+安装脚手架：`npm install --global gulp-cli`
+
+### demo
+`npm init -y`
+`pnpm install gulp -D`
+create `gulpfile.js`
+
+创建Task
+串行、并行任务
+文件复制
+
+处理less 文件
+`npm i -D gulp-less`
+
+给css 文件加前缀，使用9以下版本，9版本支持了esmodule，require报错
+`npm install gulp-autoprefixer -D`
+
+### 监听文件更改 HMR
+`browser-sync`是一个十分好用的浏览器同步测试工具，它可以搭建静态服务器，监听文件更改，并刷新页面（HMR）
+
+`npm i browser-sync -D`
+根目录新建`index.html`
+
 
 
