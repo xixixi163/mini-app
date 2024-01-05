@@ -85,5 +85,22 @@ create `gulpfile.js`
 `npm i browser-sync -D`
 根目录新建`index.html`
 
+## gulp 打包组件库并实现按需加载
+
+### 删除打包文件
+安装node 获取路径：`pnpm add @types/node -D -w`
+新建 /script/utils/paths.ts 维护路径
+
+删除打包目录函数 bulid/utils/delpath.ts
+注意这里因为打包后的包是我们最终要发布的包,所以我们需要将package.json和README.md保留下来
+
+### gulp 支持最新语法和ts
+ sucras 让我们执行 gulp 可以使用最新语法并且支持 ts
+`pnpm i gulp @types/gulp sucrase -D -w`
+
+### 执行删除流程
+build/index
+package配置脚本
+
 
 

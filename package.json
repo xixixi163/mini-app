@@ -5,11 +5,15 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "build:mini": "gulp -f ./script/build/index.ts"
   },
   "devDependencies": {
+    "@types/gulp": "^4.0.17",
     "@vitejs/plugin-vue": "^5.0.2",
+    "gulp": "^4.0.2",
     "less": "^4.2.0",
+    "sucrase": "^3.35.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.10",
     "vite-plugin-dts": "^3.7.0",
