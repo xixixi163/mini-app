@@ -113,11 +113,9 @@ package配置脚本
 问题2：使用gulp 串行执行 vite 打包，样式打包，会出现 build命令并发，并没有同步执行后执行样式打包，所以导致build打包结果覆盖less打包文件。
 解决：`buildStyle`使用setTimeout，但不靠谱；`buildComponent`加`await`解决
 
+- 打包样式改为 gulp 打包，vue文件，引入样式的文件还是less，需要更改引入。新增plugin
+使用`this.emitFile`修改打包文件的`less`引入
+
 #### 打包组件
-写一个函数执行打包命令；await zhix。
-忽略打包`less`文件，用`gulp`打包
-
-
-
-
-
+- 写一个函数执行打包命令；await 执行。
+- 忽略打包`less`文件，用`gulp`打包

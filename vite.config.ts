@@ -7,7 +7,24 @@ export default defineConfig({
         // 如果没有指定这个字段，则生成的类型会和 components下面的 vite.config.ts 同级
         outDir: ['./products/es/src', './products/lib/src'],
         tsconfigPath: './tsconfig.json'
-    })],
+    }),
+{
+    name: 'styleImportReplace',
+    generateBundle(config, bundle) {
+        // 获取打包后的文件目录以及代码code
+        const keys = Object.keys(bundle);
+        console.log('key:', keys)
+        for (const key of keys) {
+            const bundler: any = bundle[key]
+            // rollup内置方法,将所有输出文件code中的.less换成.css,因为我们当时没有打包less文件
+            this.emitFile({
+                type: "asset",
+                fileName: key, // 文件名不变
+                source: bundler.code.replace(/\.less/g, '.css')
+            })
+        }
+    }
+}],
     build: {    
         // 压缩
         // minify: false,

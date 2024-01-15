@@ -1,5 +1,5 @@
 import { defineComponent as c, computed as l, openBlock as r, createElementBlock as s, normalizeClass as p, renderSlot as a } from "vue";
-import "./style/index.less";
+import "./style/index.css";
 const d = /* @__PURE__ */ c({
   name: "LlIcon",
   __name: "icon",
