@@ -99,8 +99,25 @@ create `gulpfile.js`
 `pnpm i gulp @types/gulp sucrase -D -w`
 
 ### 执行删除流程
-build/index
+build/index，传入要删除的目录，注意不要把文件都删除了，很难找回来
 package配置脚本
+
+### gulp 打包
+#### 打包样式 less
+- 安装 gulp 解析less插件，css自动补全前缀插件，可去掉`-w`
+`pnpm add gulp-less @types/gulp-less gulp-autoprefixer @types/gulp-autoprefixer -D -w`
+
+- `vite`打包的时候忽略 `/\.less/`,否则会被vite打包成一个文件
+问题1：如果配置了分割css，`cssCodeSplit: true`，样式也可以实现放在对应目录下，那用 gulp 实现按需引入，有什么好的？
+
+问题2：使用gulp 串行执行 vite 打包，样式打包，会出现 build命令并发，并没有同步执行后执行样式打包，所以导致build打包结果覆盖less打包文件。
+解决：`buildStyle`使用setTimeout，但不靠谱；`buildComponent`加`await`解决
+
+#### 打包组件
+写一个函数执行打包命令；await zhix。
+忽略打包`less`文件，用`gulp`打包
+
+
 
 
 
