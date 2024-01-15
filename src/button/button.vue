@@ -11,10 +11,10 @@ defineOptions({
     name: 'LlButton'
 })
 
-type buttonProps = {
+type buttonPropsType = {
     type?: string;
 }
-const buttonProps = defineProps<buttonProps>()
+const buttonProps = defineProps<buttonPropsType>()
 
 const buttonStyle = computed(() => {
     return {[`ll-button--${buttonProps.type}`]: buttonProps.type}
