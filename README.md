@@ -119,3 +119,12 @@ package配置脚本
 #### 打包组件
 - 写一个函数执行打包命令；await 执行。
 - 忽略打包`less`文件，用`gulp`打包
+
+## 自动管理发布组件库
+1、打包文件夹生成`package.json`: `pnpm init`
+2、配置`package.json`
+`main` 组件入口文件
+`module` 如果使用组件库的环境支持 esmodule 则入口文件变成这个字段
+`file` 发布到 npm 上的文件目录
+`sideEffects` 需要忽略副作用的文件
+`typings` 声明文件入口
