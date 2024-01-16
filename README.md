@@ -128,3 +128,15 @@ package配置脚本
 `file` 发布到 npm 上的文件目录
 `sideEffects` 需要忽略副作用的文件
 `typings` 声明文件入口
+3、手动发布 `pnpm publish`
+报错：
+```
+npm notice Publishing to https://registry.npmjs.org/
+npm ERR! code E402
+npm ERR! 402 Payment Required - PUT https://registry.npmjs.org/@lotus-leaf%2fmini-app - You must sign up for private packages
+```
+解决：添加`publishConfig`配置
+
+### 自动发布 realse-it
+安装 `pnpm add release-it -D -w`
+添加`script`脚本
