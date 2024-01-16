@@ -18,5 +18,9 @@
   ],
   "author": "荷绿",
   "license": "ISC",
-  "typings": "lib/index.d.ts"
+  "typings": "lib/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }
