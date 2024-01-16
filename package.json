@@ -7,7 +7,7 @@
   "scripts": {
     "build": "vite build",
     "build:mini": "gulp -f ./script/build/index.ts",
-    "publish:locus": "gulp -f ./script/publish/index.ts"
+    "publish:lotus": "gulp -f ./script/publish/index.ts"
   },
   "devDependencies": {
     "@types/gulp": "^4.0.17",

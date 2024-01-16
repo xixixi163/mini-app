@@ -140,3 +140,5 @@ npm ERR! 402 Payment Required - PUT https://registry.npmjs.org/@lotus-leaf%2fmin
 ### 自动发布 realse-it
 安装 `pnpm add release-it -D -w`
 添加`script`脚本
+执行`pnpm run publish:lotus`,该工具让我们选择如何提升版本,是否发布,是否加个tag等等
+发布完毕，npm上自动更新了tag，package.json也更新了版本
