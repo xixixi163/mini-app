@@ -142,3 +142,46 @@ npm ERR! 402 Payment Required - PUT https://registry.npmjs.org/@lotus-leaf%2fmin
 添加`script`脚本
 执行`pnpm run publish:lotus`,该工具让我们选择如何提升版本,是否发布,是否加个tag等等
 发布完毕，npm上自动更新了tag，package.json也更新了版本
+
+demo项目链接的组件库依赖包也更改成了 发布的包products下的文件
+
+## 搭建部署组件库文档
+使用 `VitePress` 快速搭建一个组件库文档站点并部署到GitHub上
+
+1、新建site 文件，安装 vitepress vue
+`pnpm init`
+`pnpm install -D vitepress vue`
+
+2、新建docs文件放文档文件
+3、新增`script`命令 执行`pnpm run docs:dev`
+4、导航栏配置
+在 `docs/.vitepress` 目录下新建`config.js`
+5、配置侧边栏 `config.js`sidebar
+6、安装组件库 `pnpm install @lotus-leaf/mini-app`
+`docs/vitepress/theme/index.js`配置组件信息
+
+### 部署静态站点
+打包完成后可以部署在自己服务器，也可以部署在github站点上
+
+1、github-setting-page,设置分支和目录。每次提交代码后 actives 会构建流水线
+
+这种适用于设置目录为/root，所以需要新建一个仓库放dist文件
+自动化：本地写一个shell脚本，执行把dist文件推送到该仓库
+
+问题1：用`spawn`去执行sh，报错。原因是需要设置正确的命令run(`sh deploy.sh`),而不是 `deploy.sh`
+
+问题2:`sh xx.sh`会把整个仓库其他文件也push上去，而不是只push dist，虽然add的时候确实是dist。还要再看一下。
+
+2、或者使用 github actions 部署，需要修改 yml文件的需要部署的文件夹路径，以及出发条件
+
+注意：打包vitepress 时，需要设置线上环境目录前缀，否则src等路径找不到
+```
+export default {
+    title: 'lotus-leaf-docs',
+    base: process.env.NODE_ENV === 'production' ? '/lotus-leaf-docs/' : '/',
+    themeConfig: {
+      ...
+    }
+  }
+```
+
