@@ -202,3 +202,18 @@ export default {
 - 安装 eslint-config-prettier(覆盖 eslint 本身规则)和 eslint-plugin-prettier(Prettier 来接管 eslint --fix 即修复代码的能力)
 `pnpm add eslint-config-prettier eslint-plugin-prettier -D -w`
 
+### Stylelint
+有报错
+- 安装
+`pnpm add stylelint stylelint-prettier stylelint-config-standard stylelint-config-recommended-less postcss-html stylelint-config-recommended-vue stylelint-config-recess-order stylelint-config-prettier -D -w`
+
+- 新增 script命令
+`"lint:style": "stylelint --fix \"*.{css,less}\""`
+
+- sytlelint 插件
+实现保存自动修复
+
+## 引入测试框架
+
+
+

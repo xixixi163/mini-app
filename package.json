@@ -8,7 +8,8 @@
     "build": "vite build",
     "build:mini": "gulp -f ./script/build/index.ts",
     "publish:lotus": "gulp -f ./script/publish/index.ts",
-    "lint:script": "eslint --ext .js,.jsx,.vue,.ts,.tsx --fix --quiet ./"
+    "lint:script": "eslint --ext .js,.jsx,.vue,.ts,.tsx --fix --quiet ./",
+    "lint:style": "stylelint --fix \"*.{css,less}\""
   },
   "devDependencies": {
     "@types/gulp": "^4.0.17",
