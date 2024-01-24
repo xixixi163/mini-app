@@ -1,22 +1,22 @@
 <template>
-    <button class="ll-icon" :class="iconStyle">
-        <slot />
-    </button>
+  <button class="ll-icon" :class="iconStyle">
+    <slot />
+  </button>
 </template>
 <script lang="ts" setup>
-import "./style/index.less"
+import './style/index.less';
 import { computed } from 'vue';
 
 defineOptions({
-    name: 'LlIcon'
-})
+  name: 'LlIcon'
+});
 
 type iconPropsType = {
-    type?: string;
-}
-const iconProps = defineProps<iconPropsType>()
+  type?: string;
+};
+const iconProps = defineProps<iconPropsType>();
 
 const iconStyle = computed(() => {
-    return {[`ll-icon--${iconProps.type}`]: iconProps.type}
-})
+  return { [`ll-icon--${iconProps.type}`]: iconProps.type };
+});
 </script>

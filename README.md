@@ -185,3 +185,20 @@ export default {
   }
 ```
 
+## 配置脚手架
+见 monorepo 工程
+
+## 集成项目的编程规范工具链(ESlint+Prettier+Stylelint)
+### eslint
+- 安装 `pnpm add eslint -D -w`
+- 初始化 `pnpm create @eslint/config`
+选择好配置，选择pnpm安装，Installing @typescript-eslint/eslint-plugin@latest, eslint-plugin-vue@latest, @typescript-eslint/parser@latest, eslint@latest
+
+或手动安装`pnpm i eslint-plugin-vue@latest @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest eslint@latest -D -w`
+
+- 生成`.eslintrc.cjs`文件，配置规则
+
+### 集成代码格式化 Prettier
+- 安装 eslint-config-prettier(覆盖 eslint 本身规则)和 eslint-plugin-prettier(Prettier 来接管 eslint --fix 即修复代码的能力)
+`pnpm add eslint-config-prettier eslint-plugin-prettier -D -w`
+
