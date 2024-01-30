@@ -9,7 +9,9 @@
     "build:mini": "gulp -f ./script/build/index.ts",
     "publish:lotus": "gulp -f ./script/publish/index.ts",
     "lint:script": "eslint --ext .js,.jsx,.vue,.ts,.tsx --fix --quiet ./",
-    "lint:style": "stylelint --fix \"*.{css,less}\""
+    "lint:style": "stylelint --fix \"*.{css,less}\"",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "devDependencies": {
     "@types/gulp": "^4.0.17",
@@ -18,6 +20,7 @@
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
     "@vitejs/plugin-vue": "^5.0.2",
+    "@vitest/coverage-v8": "^1.2.1",
     "eslint": "^8.56.0",
     "eslint-plugin-vue": "^9.20.1",
     "gulp": "^4.0.2",

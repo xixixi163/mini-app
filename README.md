@@ -214,6 +214,28 @@ export default {
 实现保存自动修复
 
 ## 引入测试框架
+- 安装： `pnpm add vitest happy-dom c8 -D -w`
+happy-dom: Happy DOM是JavaScript实现的一个没有图形用户界面的Web浏览器，包含了许多来自WHATWG DOM和HTML的Web标准。其目标是模拟足够多的Web浏览器功能，以便用于测试、网站爬取和服务器端渲染，并且专注于性能，可作为JSDOM的替代品。
+
+测试的时候如果报错：ReferenceError: document is not defined
+
+那么需要在vite.config.ts 配置 happy-dom。这样使用 @vue/test-utils 才可以`mount`上
+
+c8: c8 是一个用于生成 V8 引擎下的 JavaScript 代码覆盖率报告的工具。V8 引擎是由 Google 开发的，用于执行 JavaScript 代码的引擎，主要用于 Chrome 浏览器和 Node.js。
+
+这里使用了@vitest/coverage-v8
+
+- 添加命令
+"test": "vitest",
+"coverage": "vitest run --coverage" 测试覆盖率
+
+- 安装 Vue 推荐的测试库@vue/test-utils
+pnpm add @vue/test-utils -D -w
+
+文档：https://test-utils.vuejs.org/guide/
+
+
+
 
 
 
