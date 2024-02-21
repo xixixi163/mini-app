@@ -27,7 +27,14 @@ const delPath = (path: string) => {
       }
     });
     // 不是改路径下，删除空的文件夹
-    if (path != `${pkgPath}/mini-app`) fs.rmdirSync(path);
+    const remainingFiles = fs.readdirSync(path);
+    if (remainingFiles.length === 0) {
+      fs.rmdirSync(path); // 如果为空则移除目录，不为空执行会报错
+    }
+
+    // if (path != `${pkgPath}/mini-app`) {
+    // fs.rmdirSync(path);
+    // }
   }
 };
 
