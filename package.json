@@ -11,7 +11,9 @@
     "lint:script": "eslint --ext .js,.jsx,.vue,.ts,.tsx --fix --quiet ./",
     "lint:style": "stylelint --fix \"*.{css,less}\"",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "add": "vite my-command",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@types/gulp": "^4.0.17",
@@ -26,13 +28,31 @@
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-less": "^5.0.0",
+    "husky": "^9.1.6",
     "less": "^4.2.0",
+    "lint-staged": "^15.2.10",
     "release-it": "^17.0.1",
     "sucrase": "^3.35.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.10",
     "vite-plugin-dts": "^3.7.0",
     "vue": "^3.4.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js}": [
+      "eslint --config .eslintrc.cjs"
+    ],
+    "*.{css,less,scss}": [
+      "stylelint --config .stylelintrc.cjs"
+    ],
+    "*.{ts,tsx,js,json,html,yml,css,less,scss,md}": [
+      "prettier --write"
+    ]
   },
   "keywords": [],
   "author": "",

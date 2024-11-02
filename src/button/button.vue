@@ -1,7 +1,7 @@
 <template>
   <button class="ll-button" :class="buttonStyle">
     <slot />
-  </button>
+          </button>
 </template>
 <script lang="ts" setup>
 import './style/index.less';
