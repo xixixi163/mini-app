@@ -1,6 +1,8 @@
 <template>
   <button class="ll-button" :class="buttonStyle">
-       <slot />
+       
+    
+    <slot />
   </button>
 </template>
 <script lang="ts" setup>
@@ -9,6 +11,7 @@ import { computed } from 'vue';
 
 defineOptions({
   name: 'LlButton'
+  
 });
 
 type buttonPropsType = {
