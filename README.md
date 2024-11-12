@@ -229,6 +229,12 @@ export default {
 
 - 生成`.eslintrc.cjs`文件，配置规则
 
+JavaScript - 使用 .eslintrc.js 并导出包括配置的对象。 JavaScript (ESM) - 当在 JavaScript 包中运行 ESLint 时，且其 package.json 中指定 "type":"module" 时，使用 .eslintrc.cjs。请注意 ESLint 目前不支持 ESM 配置。
+
+- 配置支持vue3编译宏，'vue/setup-compiler-macros': true
+- 配置支持变量在template使用不被识别为未使用，'vue/script-setup-uses-vars': 'error'
+  详情见笔记eslint
+
 ### 集成代码格式化 Prettier
 
 - 安装 eslint-config-prettier(覆盖 eslint 本身规则)和 eslint-plugin-prettier(Prettier 来接管 eslint --fix 即修复代码的能力)
@@ -279,6 +285,17 @@ export default {
 
 4、修改.husky/pre-commit脚本的内容，将.husky/pre-commit脚本的内容改为npm run lint-staged
 通过上面的步骤，就完成了lint-staged的配置，这个时候再进行 git 提交时，将只检查暂存区（staged）的文件，不会检查项目所有文件，加快了每次提交 lint 检查的速度,同时也不会被历史遗留问题影响。通过这样的约束让我们定义的规则规范大家都能去遵守，共同维护代码的质量。
+
+#### commitlint
+
+feat 新增功能
+fix bug 修复
+style 不影响程序逻辑的代码修改(修改空白字符，补全缺失的分号等)
+refactor 重构代码(既没有新增功能，也没有修复 bug)
+docs 文档更新
+test 增加测试
+chore 构建过程或辅助工具的变动
+chore(eslint): update eslint rules
 
 ## 引入测试框架
 

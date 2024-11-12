@@ -44,7 +44,7 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx,js}": [
+    "*.{ts,tsx,js,vue}": [
       "eslint --config .eslintrc.cjs"
     ],
     "*.{css,less,scss}": [
