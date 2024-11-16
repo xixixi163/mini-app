@@ -18,10 +18,11 @@ type SFCWithInstall<T> = T & Plugin;
  *
  * 若 app.use() 对同一个插件多次调用，该插件只会被安装一次。
  */
-export const withInstall = <T extends { name: string }>(comp: T): SFCWithInstall<T> => {
-  const enhanceComp = comp as SFCWithInstall<T>;
-  enhanceComp.install = (app: App) => {
-    app.component(comp.name, enhanceComp);
+export const withInstall = <T extends Record<string, unknown>>(
+  comp: T
+): SFCWithInstall<T> => {
+  (comp as SFCWithInstall<T>).install = (app: App) => {
+    typeof comp.name === 'string' && app.component(comp.name, comp);
   };
-  return enhanceComp;
+  return comp as SFCWithInstall<T>;
 };
