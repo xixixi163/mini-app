@@ -2,9 +2,21 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import dts from 'vite-plugin-dts';
+import { resolve } from 'path';
 export default defineConfig({
   test: {
     environment: 'happy-dom'
+  },
+  command: {
+    name: 'my-command',
+    description: 'My custom command',
+    handler(args: unknown) {
+      console.log(args, '=====');
+      // 处理自定义命令的逻辑
+    }
+  },
+  resolve: {
+    alias: { '@': resolve(__dirname, './src') }
   },
   plugins: [
     vue(),
