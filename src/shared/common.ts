@@ -1,6 +1,4 @@
-import _Button from './button.vue';
 import type { App, Plugin } from 'vue';
-
 type SFCWithInstall<T> = T & Plugin;
 
 /**
@@ -20,14 +18,10 @@ type SFCWithInstall<T> = T & Plugin;
  *
  * 若 app.use() 对同一个插件多次调用，该插件只会被安装一次。
  */
-const withInstall = <T>(comp: T) => {
-  (comp as SFCWithInstall<T>).install = (app: App) => {
-    const name = (comp as any).name;
-    // 注册组件，其实也是插件的一种
-    app.component(name, comp as SFCWithInstall<T>);
+export const withInstall = <T extends { name: string }>(comp: T): SFCWithInstall<T> => {
+  const enhanceComp = comp as SFCWithInstall<T>;
+  enhanceComp.install = (app: App) => {
+    app.component(comp.name, enhanceComp);
   };
-  return comp as SFCWithInstall<T>;
+  return enhanceComp;
 };
-
-export const Button = withInstall(_Button);
-export default Button;

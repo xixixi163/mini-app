@@ -1,6 +1,6 @@
-export * from './src/index';
+export * from '@/components/index';
 // 注册全局组件/插件
-import * as components from './src/index';
+import * as components from '@/components/index';
 import { App } from 'vue';
 
 export default {
