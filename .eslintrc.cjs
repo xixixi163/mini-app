@@ -23,7 +23,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: ['module', 'cjs'],
-    parser: '@typescript-eslint/parser' // 使用自定义解析器，不使用eslint-plugin-vue的解析器vue-eslint-parser
+    parser: '@typescript-eslint/parser' // 使用自定义解析器，除了支持vue-eslint-parse解析器，支持其他自定义解析器。处理script部分的代码
   },
   plugins: ['vue', '@typescript-eslint'],
   rules: {
