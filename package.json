@@ -3,7 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "index.js",
+  "files": [
+    "products"
+  ],
+  "main": "./products/lib/index.js",
+  "module": "./products/es/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./products/es/index.mjs",
+      "require": "./products/lib/index.js"
+    }
+  },
   "scripts": {
     "build": "vite build",
     "build:mini": "gulp -f ./script/build/index.ts",
@@ -13,7 +23,8 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "add": "vite my-command",
-    "prepare": "husky"
+    "prepare": "husky",
+    "watch": "onchange 'src/**' -- pnpm run build:mini"
   },
   "devDependencies": {
     "@types/gulp": "^4.0.17",
@@ -31,6 +42,7 @@
     "husky": "^9.1.6",
     "less": "^4.2.0",
     "lint-staged": "^15.2.10",
+    "on-change": "^5.0.1",
     "release-it": "^17.0.1",
     "sucrase": "^3.35.0",
     "typescript": "^5.3.3",
@@ -50,11 +62,14 @@
     "*.{css,less,scss}": [
       "stylelint --config .stylelintrc.cjs"
     ],
-    "*.{ts,tsx,js,json,html,yml,css,less,scss,md}": [
+    "*.{ts,tsx,js,json,html,yml,css,less,scss,md,vue}": [
       "prettier --write"
     ]
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }

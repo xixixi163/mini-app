@@ -50,7 +50,8 @@ export default defineConfig({
     // 分割css
     // cssCodeSplit: true,
     rollupOptions: {
-      external: ['vue', /\.less/],
+      external: ['vue', /\.less/, 'lodash'],
+      // external: ['vue'],
       input: ['index.ts'],
       output: [
         {

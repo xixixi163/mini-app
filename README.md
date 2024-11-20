@@ -318,3 +318,16 @@ c8: c8 是一个用于生成 V8 引擎下的 JavaScript 代码覆盖率报告的
   pnpm add @vue/test-utils -D -w
 
 文档：https://test-utils.vuejs.org/guide/
+
+## 问题记录
+### 使用vite打包lib，css样式失效
+场景：产物目录和组件目录一致，打包样式失效
+https://github.com/vitejs/vite/issues/1579
+https://www.developers.pub/article/1263608
+最后还是gulp来处理样式,vite 不处理样式。缺点：使用SFC写法，写样式不会生效，不能使用Vue3特性--在style中v-bind变量
+
+## 监听文件更新
+- 安装 on-change 开源包
+`npm install on-change -g`，全局安装需要npm，可能是pnpm没有在全局安装
+- 在script脚本新增on-change命令
+- 执行命令，当指定目录下的文件更新后，会自动执行对应脚本
