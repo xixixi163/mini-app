@@ -10,10 +10,10 @@ module.exports = {
     'plugin:vue/vue3-essential',
     'plugin:vue/vue3-strongly-recommended',
     'plugin:@typescript-eslint/recommended',
-    // 接入 prettier 规则
-    'prettier',
+    'plugin:vue/vue3-recommended',
     'plugin:prettier/recommended',
-    'plugin:vue/vue3-recommended'
+    // 接入 prettier 规则,放在最后
+    'prettier'
     // 'plugin:vue/recommended' // Use this if you are using Vue.js 2.x.
   ],
   globals: {
@@ -28,11 +28,26 @@ module.exports = {
   plugins: ['vue', '@typescript-eslint'],
   rules: {
     // 开启 prettier 自动修复功能
-    'prettier/prettier': 'error',
+    'prettier/prettier': [
+      'error',
+      {
+        printWidth: 100,
+        singleAttributePerLine: false
+      }
+    ],
     '@typescript-eslint/ban-ts-comment': 'off',
     'vue/multi-word-component-names': 'off',
     // prevent <script setup> variables used in <template> to be marked as unused
     // This rule is not needed when using vue-eslint-parser v9.0.0 or later.。
     'vue/script-setup-uses-vars': 'error' // 这个规则可以告诉 ESLint 检测 `script setup` 中的变量在 template 中的使用
+    // 'vue/max-attributes-per-line': [
+    //   'error',
+    //   {
+    //     singleline: 2, // 一行最多允许三个属性
+    //     multiline: {
+    //       max: 1 // 多行情况下每行最多一个属性
+    //     }
+    //   }
+    // ]
   }
 };
